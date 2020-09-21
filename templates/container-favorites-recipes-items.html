@@ -26,6 +26,7 @@
                     </p>
                 </div>
             </div>
+            {% if user.is_authenticated %}
             <div class="card__footer">
 
                 <!-- Кнопка "Добавить в покупки"-->
@@ -35,6 +36,7 @@
                 {% include 'favorites-button.html' with recipe=favorites_recipe.favorites %}
 
             </div>
+            {% endif %}
         </div>
     {% endfor %}
 </div>

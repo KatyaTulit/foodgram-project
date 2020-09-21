@@ -24,7 +24,7 @@ def add_recipe_shopping_list(request):
 
 @require_http_methods(["DELETE"])
 def remove_recipe_shopping_list(request, recipe_id):
-    num, deleted = get_object_or_404(
+    num = get_object_or_404(
         ShoppingList, recipe_id=recipe_id, user=request.user).delete()
     if num != 0:
         return JsonResponse({'success': True})
@@ -46,7 +46,7 @@ def following(request):
 
 @require_http_methods(["DELETE"])
 def unfollowing(request, author_id):
-    num, deleted = get_object_or_404(
+    num = get_object_or_404(
         SubscriptionsUsers,
         author_id=author_id, user_id=request.user.id).delete()
     if num != 0:
@@ -67,8 +67,8 @@ def add_favorite_recipe(request):
 
 @require_http_methods(["DELETE"])
 def remove_favorite_recipe(request, recipe_id):
-    num, deleted = get_object_or_404(FavoritesRecipes, favorites_id=recipe_id,
-                                     user_id=request.user.id).delete()
+    num = get_object_or_404(FavoritesRecipes, favorites_id=recipe_id,
+                            user_id=request.user.id).delete()
     if num != 0:
         return JsonResponse({'success': True})
     return JsonResponse({'success': False}, status=400)

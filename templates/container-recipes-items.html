@@ -28,12 +28,14 @@
                 </div>
             </div>
 
+            {% if user.is_authenticated %}
             <div class="card__footer">
                 <!-- Кнопка "Добавить в покупки"-->
                 {% include 'shopping-list-button.html' %}
                 <!--Кнопка "избранное"-->
                 {% include 'favorites-button.html' %}
             </div>
+            {% endif %}
         </div>
     {% endfor %}
 </div>
