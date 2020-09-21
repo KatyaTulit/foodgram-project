@@ -13,11 +13,11 @@ server {
 
     location /staticfiles/ {
         include /etc/nginx/mime.types;
-        alias /home/foodgram/web/staticfiles/;
+        alias /foodgram/staticfiles/;
     }
 
     location /media/ {
-        alias /home/foodgram/web/media/;
+        alias /foodgram/media/;
     }
 
 }
